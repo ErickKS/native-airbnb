@@ -99,7 +99,7 @@ function RootLayoutNav() {
         }}
       />
 
-      <Stack.Screen name="listing/[id]" options={{ headerTitle: "" }} />
+      <Stack.Screen name="listing/[id]" options={{ headerTitle: "", animation: "slide_from_right" }} />
     </Stack>
   );
 }
