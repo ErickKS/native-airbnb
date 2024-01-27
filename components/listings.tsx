@@ -24,11 +24,14 @@ export function Listings({ items, category }: ListingsProps) {
 
   const renderRow: ListRenderItem<Listing> = ({ item }) => (
     <Link href={`/listing/${item.id}`} asChild>
-      <TouchableOpacity activeOpacity={0.7} className="p-4">
+      <TouchableOpacity activeOpacity={0.8} className="p-4">
         <Animated.View entering={FadeInDown} exiting={FadeOutUp} className="mb-2">
           <Image source={{ uri: item.medium_url }} className="h-[300px] w-full rounded-lg" />
 
-          <TouchableOpacity className="absolute top-4 right-4 justify-center items-center h-10 w-10 bg-white rounded-full">
+          <TouchableOpacity
+            activeOpacity={0.5}
+            className="absolute top-4 right-4 justify-center items-center h-10 w-10 bg-white rounded-full"
+          >
             <Ionicons name="heart-outline" size={24} color={"#000"} />
           </TouchableOpacity>
         </Animated.View>
