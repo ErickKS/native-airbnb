@@ -1,18 +1,27 @@
 import { Listing } from "@/types/listing";
 import { Ionicons } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { Link, Stack } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { FlatList, Image, ListRenderItem, TouchableOpacity, Text, View } from "react-native";
+import { Image, ListRenderItem, TouchableOpacity, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Animated, { FadeInDown, FadeOutUp } from "react-native-reanimated";
+import { BottomSheetFlatList, BottomSheetFlatListMethods } from "@gorhom/bottom-sheet";
+
 interface ListingsProps {
   items: any[];
   category: string;
+  refresh: number;
 }
 
-export function Listings({ items, category }: ListingsProps) {
+export function Listings({ items, category, refresh }: ListingsProps) {
   const [loading, setLoading] = useState(false);
-  const listRef = useRef<FlatList>(null);
+  const listRef = useRef<BottomSheetFlatListMethods>(null);
+
+  useEffect(() => {
+    if (refresh) {
+      listRef.current?.scrollToOffset({ offset: 0, animated: true });
+    }
+  }, [refresh]);
 
   useEffect(() => {
     setLoading(true);
@@ -59,9 +68,16 @@ export function Listings({ items, category }: ListingsProps) {
 
   return (
     <SafeAreaView className="flex-1">
-      <View className="mt-28">
-        <FlatList ref={listRef} renderItem={renderRow} data={loading ? [] : items} />
-      </View>
+      <BottomSheetFlatList
+        ref={listRef}
+        renderItem={renderRow}
+        data={loading ? [] : items}
+        ListHeaderComponent={
+          <Text style={{ fontFamily: "mon-sb" }} className="text-center text-black">
+            {items.length} homes
+          </Text>
+        }
+      />
     </SafeAreaView>
   );
 }

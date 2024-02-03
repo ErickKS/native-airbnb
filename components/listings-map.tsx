@@ -1,8 +1,9 @@
-import { ListingGeo } from "@/types/listing-geo";
+import { memo } from "react";
 import { useRouter } from "expo-router";
 import { Text, View } from "react-native";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import MapView from "react-native-map-clustering";
+import { ListingGeo } from "@/types/listing-geo";
 
 interface ListingMapProps {
   listings: any;
@@ -15,7 +16,7 @@ const INITIAL_REGION = {
   longitudeDelta: 9,
 };
 
-export function ListingMap({ listings }: ListingMapProps) {
+export const ListingsMap = memo(({ listings }: ListingMapProps) => {
   const router = useRouter();
 
   function onMarkerSelected(item: ListingGeo) {
@@ -81,4 +82,4 @@ export function ListingMap({ listings }: ListingMapProps) {
       </MapView>
     </View>
   );
-}
+});
