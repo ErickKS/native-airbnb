@@ -38,7 +38,7 @@ export default function Login() {
   }
 
   return (
-    <View className="flex-1 p-6 bg-white ">
+    <View className="flex-1 p-6 bg-white">
       <TextInput autoCapitalize="none" placeholder="Email" className="h-11 p-[10px] mb-6 bg-white border border-gray rounded-lg" />
 
       <TouchableOpacity className="justify-center items-center h-12 bg-primary rounded-lg">

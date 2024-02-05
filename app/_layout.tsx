@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import * as SecureStore from "expo-secure-store";
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
+import { ModalHeader } from "@/components/modal-header";
 
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -87,15 +88,9 @@ function RootLayoutNav() {
       <Stack.Screen
         name="(modals)/booking"
         options={{
-          title: "Log or sign up",
-          headerTitleStyle: { fontFamily: "mon-sb" },
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => router.back()}>
-              <Ionicons name="close-outline" size={28} />
-            </TouchableOpacity>
-          ),
-          animation: "fade",
+          headerShown: false,
           presentation: "transparentModal",
+          animation: "fade",
         }}
       />
 
