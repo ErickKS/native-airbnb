@@ -1,11 +1,11 @@
-import { Listing } from "@/types/listing";
-import { Ionicons } from "@expo/vector-icons";
-import { Link, Stack } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { Image, ListRenderItem, TouchableOpacity, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Animated, { FadeInDown, FadeOutUp } from "react-native-reanimated";
+import { Link } from "expo-router";
 import { BottomSheetFlatList, BottomSheetFlatListMethods } from "@gorhom/bottom-sheet";
+import { Ionicons } from "@expo/vector-icons";
+
+import { Listing } from "@/types/listing";
 
 interface ListingsProps {
   items: any[];
@@ -67,7 +67,7 @@ export function Listings({ items, category, refresh }: ListingsProps) {
   );
 
   return (
-    <SafeAreaView className="flex-1">
+    <View className="flex-1">
       <BottomSheetFlatList
         ref={listRef}
         renderItem={renderRow}
@@ -78,6 +78,6 @@ export function Listings({ items, category, refresh }: ListingsProps) {
           </Text>
         }
       />
-    </SafeAreaView>
+    </View>
   );
 }

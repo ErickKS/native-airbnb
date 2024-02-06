@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
-import { View } from "react-native";
 import { Stack } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import { ExploreHeader } from "@/components/explore-header";
 import { ListingsMap } from "@/components/listings-map";
 import { ListingsBottomSheet } from "@/components/listings-bottom-sheet";
@@ -18,7 +19,7 @@ export default function Explore() {
   }
 
   return (
-    <View className="flex-1 mt-16">
+    <SafeAreaView className="flex-1">
       <Stack.Screen
         options={{
           header: () => <ExploreHeader onCategoryChanged={onDataChanged} />,
@@ -27,6 +28,6 @@ export default function Explore() {
 
       <ListingsMap listings={geoItems} />
       <ListingsBottomSheet listings={items} category={category} />
-    </View>
+    </SafeAreaView>
   );
 }

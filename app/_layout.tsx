@@ -9,7 +9,7 @@ import { ModalHeader } from "@/components/modal-header";
 
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
-const tokeCache = {
+const tokenCache = {
   async getToken(key: string) {
     try {
       return SecureStore.getItemAsync(key);
@@ -50,7 +50,7 @@ export default function RootLayout() {
   if (!fontLoaded) return null;
 
   return (
-    <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY!} tokenCache={tokeCache}>
+    <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY!} tokenCache={tokenCache}>
       <RootLayoutNav />
     </ClerkProvider>
   );

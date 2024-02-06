@@ -61,7 +61,7 @@ export function ExploreHeader({ onCategoryChanged }: ExploreHeaderProps) {
   };
 
   return (
-    <SafeAreaView className="flex-1">
+    <SafeAreaView className="flex-1 bg-white">
       <View className="h-[136px] pt-3 bg-white">
         <View className="flex-row justify-between items-center px-6 pb-4">
           <Link href={"/(modals)/booking"} asChild>
