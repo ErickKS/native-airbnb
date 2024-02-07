@@ -1,11 +1,12 @@
-import Colors from "@/constants/Colors";
-import { useAuth, useUser } from "@clerk/clerk-expo";
-import { Ionicons } from "@expo/vector-icons";
-import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { Button, Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Link } from "expo-router";
+import { useAuth, useUser } from "@clerk/clerk-expo";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as ImagePicker from "expo-image-picker";
+import { Ionicons } from "@expo/vector-icons";
+
+import Colors from "@/constants/Colors";
 
 export default function Profile() {
   const { signOut, isSignedIn } = useAuth();
@@ -58,7 +59,7 @@ export default function Profile() {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className="flex-row justify-between items-center p-6">
-        <Text style={{ fontFamily: "mon-sb", fontSize: 24 }}>Profile</Text>
+        <Text className="font-semibold text-2xl">Profile</Text>
         <Ionicons name="notifications-outline" size={26} />
       </View>
 
@@ -102,7 +103,7 @@ export default function Profile() {
               </View>
             ) : (
               <View className="flex-1 flex-row items-center justify-center gap-x-2 h-12">
-                <Text style={{ fontFamily: "mon-b" }} className="text-xl">
+                <Text className="text-xl font-bold">
                   {firstName} {lastName}
                 </Text>
 

@@ -72,10 +72,8 @@ export function ExploreHeader({ onCategoryChanged }: ExploreHeaderProps) {
               <Ionicons name="search" size={24} />
 
               <View className="pl-3">
-                <Text style={{ fontFamily: "mon-sb" }}>Where to?</Text>
-                <Text style={{ fontFamily: "mon" }} className="text-gray">
-                  Anywhere · any week
-                </Text>
+                <Text className="font-semibold">Where to?</Text>
+                <Text className="text-gray font-regular">Anywhere · any week</Text>
               </View>
             </TouchableOpacity>
           </Link>

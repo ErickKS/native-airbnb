@@ -37,15 +37,7 @@ export const ListingsMap = memo(({ listings }: ListingMapProps) => {
         }}
       >
         <View className="items-center justify-center p-2 bg-white rounded-xl shadow-md shadow-gray">
-          <Text
-            style={{
-              color: "#000",
-              textAlign: "center",
-              fontFamily: "mon-sb",
-            }}
-          >
-            {points}
-          </Text>
+          <Text className="text-black text-center font-semibold">{points}</Text>
         </View>
       </Marker>
     );
@@ -62,7 +54,7 @@ export const ListingsMap = memo(({ listings }: ListingMapProps) => {
         style={{ height: "100%", width: "100%" }}
         clusterColor="#FFF"
         clusterTextColor="#000"
-        clusterFontFamily="mon-sb"
+        clusterFontFamily="Montserrat_600Semibold"
         renderCluster={renderCluster}
       >
         {listings.features.map((item: ListingGeo) => (
@@ -75,7 +67,7 @@ export const ListingsMap = memo(({ listings }: ListingMapProps) => {
             }}
           >
             <View className="items-center justify-center p-2 bg-white rounded-xl shadow-md shadow-gray">
-              <Text style={{ fontFamily: "mon-sb" }}>$ {item.properties.price}</Text>
+              <Text className="font-semibold">$ {item.properties.price}</Text>
             </View>
           </Marker>
         ))}

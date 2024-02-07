@@ -45,9 +45,7 @@ export function ListingsBottomSheet({ listings, category }: ListingsBottomSheetP
 
       <View className="absolute bottom-4 items-center w-full">
         <TouchableOpacity onPress={showMap} activeOpacity={0.7} className="flex-row items-center py-3 px-4 bg-white rounded-full">
-          <Text style={{ fontFamily: "mon-sb" }} className="pr-2">
-            Map
-          </Text>
+          <Text className="pr-2 font-semibold">Map</Text>
 
           <Ionicons name="map" size={20} color={"#000"} />
         </TouchableOpacity>

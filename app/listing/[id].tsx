@@ -86,22 +86,20 @@ export default function Listing() {
         <Animated.Image source={{ uri: listing.xl_picture_url }} style={[{ height: IMG_HEIGHT, width }, imageAnimatedStyle]} />
 
         <View className="p-6 bg-white">
-          <Text style={{ fontFamily: "mon-sb" }} className="text-2xl font-bold">
-            {listing.name}
-          </Text>
+          <Text className="text-2xl font-semibold">{listing.name}</Text>
 
-          <Text style={{ fontFamily: "mon-sb" }} className="text-lg mt-3">
+          <Text className="mt-3 text-lg font-semibold">
             {listing.room_type} in {listing.smart_location}
           </Text>
 
-          <Text style={{ fontFamily: "mon" }} className="text-base text-gray my-1">
+          <Text className="text-base text-gray font-regular">
             {listing.guests_included} guests · {listing.bedrooms} bedrooms · {listing.beds} bed · {listing.bathrooms} bathrooms
           </Text>
 
           <View className="flex-row items-center">
             <Ionicons name="star" size={16} />
 
-            <Text style={{ fontFamily: "mon-sb" }} className="text-base pl-1">
+            <Text className="pl-1 text-base font-semibold">
               {listing.review_scores_rating / 20} · {listing.number_of_reviews} reviews
             </Text>
           </View>
@@ -119,9 +117,7 @@ export default function Listing() {
 
           <View className="h-px bg-gray my-4" />
 
-          <Text style={{ fontFamily: "mon" }} className="text-base text-gray mt-3 pb-[70px]">
-            {listing.description}
-          </Text>
+          <Text className="mt-3 pb-[70px] text-base text-gray font-regular">{listing.description}</Text>
         </View>
       </Animated.ScrollView>
 
@@ -142,17 +138,13 @@ export default function Listing() {
       >
         <View className="flex-row justify-between items-center">
           <TouchableOpacity className="flex-row justify-center items-center h-full">
-            <Text style={{ fontFamily: "mon-sb" }} className="text-lg pr-1">
-              ${listing.price}
-            </Text>
+            <Text className="pr-1 text-lg font-semibold">${listing.price}</Text>
 
             <Text>/ night</Text>
           </TouchableOpacity>
 
           <TouchableOpacity className="justify-center items-center h-[50px] rounded-lg bg-primary px-5">
-            <Text style={{ fontFamily: "mon-b" }} className="text-base text-white">
-              Reserve
-            </Text>
+            <Text className="text-base text-white font-bold">Reserve</Text>
           </TouchableOpacity>
         </View>
       </Animated.ScrollView>

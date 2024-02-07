@@ -9,6 +9,12 @@ module.exports = {
         gray: "#5E5D5E",
       },
     },
+
+    fontFamily: {
+      regular: "Montserrat_400Regular",
+      semibold: "Montserrat_600SemiBold",
+      bold: "Montserrat_700Bold",
+    },
   },
   plugins: [],
 };

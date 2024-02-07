@@ -84,21 +84,15 @@ export default function Booking() {
         >
           {openCard !== 0 && (
             <AnimatedTouchableOpacity onPress={() => setOpenCard(0)} className="flex-row justify-between p-5">
-              <Text style={{ fontFamily: "mon-sb" }} className="text-sm text-gray">
-                Where
-              </Text>
+              <Text className="text-sm text-gray font-semibold">Where</Text>
 
-              <Text style={{ fontFamily: "mon-sb" }} className="text-sm text-gray">
-                I'm flexible
-              </Text>
+              <Text className="text-sm text-gray font-semibold">I'm flexible</Text>
             </AnimatedTouchableOpacity>
           )}
 
           {openCard === 0 && (
             <>
-              <Text style={{ fontFamily: "mon-b" }} className="text-xl p-5">
-                Where to?
-              </Text>
+              <Text className="p-5 text-xl font-bold">Where to?</Text>
 
               <Animated.View entering={FadeIn} exiting={FadeOut} className={"pb-5 px-5"}>
                 <View className="flex-row items-center h-[50px] bg-white border border-gray rounded-lg px-4">
@@ -120,9 +114,7 @@ export default function Booking() {
                         ]}
                       />
 
-                      <Text style={[{ paddingTop: 8 }, selectedPlace === index ? { fontFamily: "mon-sb" } : { fontFamily: "mon" }]}>
-                        {item.title}
-                      </Text>
+                      <Text className={`pt-2 ${selectedPlace === index ? "font-semibold" : "font-regular"}`}>{item.title}</Text>
                     </TouchableOpacity>
                   ))}
                 </ScrollView>
@@ -147,21 +139,15 @@ export default function Booking() {
         >
           {openCard !== 1 && (
             <AnimatedTouchableOpacity onPress={() => setOpenCard(1)} className="flex-row justify-between p-5">
-              <Text style={{ fontFamily: "mon-sb" }} className="text-sm text-gray">
-                When
-              </Text>
+              <Text className="text-sm text-gray font-semibold">When</Text>
 
-              <Text style={{ fontFamily: "mon-sb" }} className="text-sm text-gray">
-                Any week
-              </Text>
+              <Text className="text-sm text-gray font-semibold">Any week</Text>
             </AnimatedTouchableOpacity>
           )}
 
           {openCard == 1 && (
             <>
-              <Text style={{ fontFamily: "mon-b" }} className="text-xl p-5 pb-0">
-                When's your trip?
-              </Text>
+              <Text className="p-5 pb-0 text-xl font-bold">When's your trip?</Text>
 
               <Animated.View entering={FadeIn} className={"pb-3"}>
                 <DatePicker
@@ -169,8 +155,8 @@ export default function Booking() {
                   current={today}
                   selected={today}
                   options={{
-                    defaultFont: "mon",
-                    headerFont: "mon-sb",
+                    defaultFont: "Montserrat_400Regular",
+                    headerFont: "Montserrat_600Semibold",
                     mainColor: Colors.primary,
                     borderColor: "transparent",
                   }}
@@ -196,21 +182,15 @@ export default function Booking() {
         >
           {openCard !== 3 && (
             <AnimatedTouchableOpacity onPress={() => setOpenCard(3)} className="flex-row justify-between">
-              <Text style={{ fontFamily: "mon-sb" }} className="text-sm text-gray">
-                Who
-              </Text>
+              <Text className="text-sm text-gray font-semibold">Who</Text>
 
-              <Text style={{ fontFamily: "mon-sb" }} className="text-sm text-gray">
-                Add guests
-              </Text>
+              <Text className="text-sm text-gray font-semibold">Add guests</Text>
             </AnimatedTouchableOpacity>
           )}
 
           {openCard == 3 && (
             <>
-              <Text style={{ fontFamily: "mon-b" }} className="text-xl">
-                Who's coming?
-              </Text>
+              <Text className="text-xl font-bold">Who's coming?</Text>
 
               <Animated.View entering={FadeIn}>
                 {groups.map((item, index) => (
@@ -219,12 +199,8 @@ export default function Booking() {
                     className={`flex-row justify-between items-center py-4 ${index + 1 < guestsGroups.length && "border-b border-gray"}`}
                   >
                     <View>
-                      <Text style={{ fontFamily: "mon-sb" }} className="text-sm">
-                        {item.name}
-                      </Text>
-                      <Text style={{ fontFamily: "mon" }} className="text-sm text-gray">
-                        {item.text}
-                      </Text>
+                      <Text className="text-sm font-semibold">{item.name}</Text>
+                      <Text className="text-sm text-gray font-regular">{item.text}</Text>
                     </View>
 
                     <View className="flex-row justify-center items-center gap-x-2">
@@ -232,16 +208,7 @@ export default function Booking() {
                         <Ionicons name="remove-circle-outline" size={26} color={groups[index].count > 0 ? Colors.gray : "#cdcdcd"} />
                       </TouchableOpacity>
 
-                      <Text
-                        style={{
-                          fontFamily: "mon",
-                          fontSize: 16,
-                          minWidth: 18,
-                          textAlign: "center",
-                        }}
-                      >
-                        {item.count}
-                      </Text>
+                      <Text className="min-w-[18px] text-base text-center font-regular">{item.count}</Text>
 
                       <TouchableOpacity onPress={() => handleRemoveGuest(index)}>
                         <Ionicons name="add-circle-outline" size={26} color={Colors.gray} />
@@ -272,9 +239,7 @@ export default function Booking() {
         >
           <View className="flex-row justify-between items-center">
             <TouchableOpacity onPress={onClearAll} className="flex-row justify-center items-center h-full">
-              <Text style={{ fontFamily: "mon-sb" }} className="text-lg underline">
-                Clear all
-              </Text>
+              <Text className="text-lg font-semibold underline">Clear all</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -283,9 +248,7 @@ export default function Booking() {
             >
               <Ionicons name="search-outline" size={24} color={"#fff"} />
 
-              <Text style={{ fontFamily: "mon-b" }} className="pl-2 text-base text-white">
-                Search
-              </Text>
+              <Text className="pl-2 text-base text-white font-bold">Search</Text>
             </TouchableOpacity>
           </View>
         </Animated.ScrollView>

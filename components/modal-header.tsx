@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import Colors from "@/constants/Colors";
 
 export function ModalHeader() {
   const [active, setActive] = useState(0);
@@ -19,29 +18,11 @@ export function ModalHeader() {
 
       <View className="flex-1 flex-row gap-x-2 justify-center">
         <TouchableOpacity onPress={() => setActive(0)}>
-          <Text
-            style={{
-              fontFamily: "mon-sb",
-              fontSize: 18,
-              color: active == 0 ? "#000" : Colors.gray,
-              textDecorationLine: active == 0 ? "underline" : "none",
-            }}
-          >
-            Stays
-          </Text>
+          <Text className={`text-lg font-semibold ${active === 0 ? "text-black underline" : "text-gray"}`}>Stays</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => setActive(1)}>
-          <Text
-            style={{
-              fontFamily: "mon-sb",
-              fontSize: 18,
-              color: active == 1 ? "#000" : Colors.gray,
-              textDecorationLine: active == 1 ? "underline" : "none",
-            }}
-          >
-            Experiences
-          </Text>
+          <Text className={`text-lg font-semibold ${active === 1 ? "text-black underline" : "text-gray"}`}>Experiences</Text>
         </TouchableOpacity>
       </View>
     </View>

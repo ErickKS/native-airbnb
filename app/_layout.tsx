@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import { SplashScreen, Stack, useRouter } from "expo-router";
-import { useFonts } from "expo-font";
 import * as SecureStore from "expo-secure-store";
 import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
+
+import { useFonts, Montserrat_400Regular, Montserrat_600SemiBold, Montserrat_700Bold } from "@expo-google-fonts/montserrat";
 import { Ionicons } from "@expo/vector-icons";
-import { ModalHeader } from "@/components/modal-header";
 
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -34,9 +34,9 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontLoaded, fontError] = useFonts({
-    mon: require("../assets/fonts/Montserrat-Regular.ttf"),
-    "mon-sb": require("../assets/fonts/Montserrat-SemiBold.ttf"),
-    "mon-b": require("../assets/fonts/Montserrat-Bold.ttf"),
+    Montserrat_400Regular,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
   });
 
   useEffect(() => {
@@ -74,7 +74,7 @@ function RootLayoutNav() {
         name="(modals)/login"
         options={{
           title: "Log or sign up",
-          headerTitleStyle: { fontFamily: "mon-sb" },
+          headerTitleStyle: { fontFamily: "Montserrat_700Semibold" },
           headerLeft: () => (
             <TouchableOpacity onPress={() => router.back()}>
               <Ionicons name="close-outline" size={28} />

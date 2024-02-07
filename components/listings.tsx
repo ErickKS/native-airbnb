@@ -46,21 +46,21 @@ export function Listings({ items, category, refresh }: ListingsProps) {
         </Animated.View>
 
         <Animated.View entering={FadeInDown} exiting={FadeOutUp} className="flex-row items-center justify-between">
-          <Text style={{ fontSize: 16, fontFamily: "mon-sb" }}>{item.name}</Text>
+          <Text className="text-base font-semibold">{item.name}</Text>
 
           <View className="flex-row gap-1">
             <Ionicons name="star" size={16} />
-            <Text style={{ fontFamily: "mon-sb" }}>{item.review_scores_rating / 20}</Text>
+            <Text className="font-semibold">{item.review_scores_rating / 20}</Text>
           </View>
         </Animated.View>
 
-        <Animated.Text entering={FadeInDown} exiting={FadeOutUp} style={{ fontFamily: "mon" }} className="mb-1">
+        <Animated.Text entering={FadeInDown} exiting={FadeOutUp} className="mb-1 font-regular">
           {item.room_type}
         </Animated.Text>
 
         <Animated.View entering={FadeInDown} exiting={FadeOutUp} className="flex-row gap-1">
-          <Text style={{ fontFamily: "mon-sb" }}>$ {item.price}</Text>
-          <Text style={{ fontFamily: "mon" }}>/ night</Text>
+          <Text className="font-semibold">$ {item.price}</Text>
+          <Text className="font-regular">/ night</Text>
         </Animated.View>
       </TouchableOpacity>
     </Link>
@@ -72,11 +72,7 @@ export function Listings({ items, category, refresh }: ListingsProps) {
         ref={listRef}
         renderItem={renderRow}
         data={loading ? [] : items}
-        ListHeaderComponent={
-          <Text style={{ fontFamily: "mon-sb" }} className="text-center text-black">
-            {items.length} homes
-          </Text>
-        }
+        ListHeaderComponent={<Text className="text-center text-black font-semibold">{items.length} homes</Text>}
       />
     </View>
   );
